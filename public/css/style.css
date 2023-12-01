@@ -1,0 +1,558 @@
+:root {
+    --size-little-cube: 18vw;
+    --half-size-little-cube: calc(var(--size-little-cube) * 0.5);
+    --neg-half-size-little-cube: calc(var(--half-size-little-cube) * -1);
+    --cube-separation : 1.04;
+    --neg-translate-little-cube: calc(var(--size-little-cube) * var(--cube-separation) * -1 );
+    --translate-little-cube: calc(var(--size-little-cube) * var(--cube-separation));
+    --with-face: #FFF;
+    --yellow-face: #FF0;
+    --blue-face: #00F;
+    --green-face: #0F0;
+    --red-face: #F00;
+    --orange-face: #F80;
+    --black-face: #000;
+
+}
+
+html {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: lightgray;
+}
+
+/* ---------MAIN SECTIONS-------- */
+
+
+
+
+/* ---------AXIES STYLES-------- */
+
+.central-axis{
+    display: none;
+    position: absolute;
+    transform-style: preserve-3d;
+    width: 3px;
+    height: calc(var(--size-little-cube)*8);
+    background-color: var(--red-face);
+    z-index: -2
+}
+
+#X-axis{
+    transform: rotateZ(90deg);
+}
+
+#Z-axis{
+    transform: rotateX(90deg);
+}
+
+/* ---------BUTTONS MOVEMENT STYLES-------- */
+
+.ext-button-container{
+    display: none;
+    position: absolute;
+    transform-style: preserve-3d;
+    width: var(--size-little-cube);
+    height: var(--size-little-cube);
+    background-color: #000c;
+    border-radius: 50%;
+}
+
+.button-container{
+    cursor: pointer;
+    position: absolute;
+    transform-style: preserve-3d;
+    width: inherit;
+    height: inherit;
+    transition: transform 0.4s linear;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.movement{
+    all: unset;
+    z-index: 3;
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    border-radius: 50%;
+    border:calc(var(--size-little-cube) *0.02)  solid var(--with-face);
+    border-left: calc(var(--size-little-cube) *0.02) solid transparent;
+}
+
+.arrow{
+    position: absolute;
+    font-size: calc(var(--size-little-cube) *0.3);
+    font-weight: bold;
+    color: var(--with-face);
+    left: calc(var(--size-little-cube) *0.2);
+    top: calc(var(--size-little-cube) *0.1);
+    transform: rotateZ(135deg);
+    z-index: -1;
+    user-select: none;
+}
+
+
+#f-up-container{
+    transform: translateY(calc(var(--size-little-cube) * -2.3)) rotateX(-90deg);
+}
+
+#f-up-R-container{
+    transform: translateY(calc(var(--size-little-cube) * -3.3)) rotateX(90deg);
+}
+
+#f-down-container{
+    transform: translateY(calc(var(--size-little-cube) * 2.3)) rotateX(90deg);
+}
+
+#f-down-R-container{
+    transform: translateY(calc(var(--size-little-cube) * 3.3)) rotateX(-90deg);
+}
+
+#f-left-container{
+    transform: translateX(calc(var(--size-little-cube) * -2.3)) rotateY(90deg);
+}
+
+#f-left-R-container{
+    transform: translateX(calc(var(--size-little-cube) * -3.3)) rotateY(-90deg);
+}
+
+#f-right-container{
+    transform: translateX(calc(var(--size-little-cube) * 2.3)) rotateY(90deg);
+}
+
+#f-right-R-container{
+    transform: translateX(calc(var(--size-little-cube) * 3.3)) rotateY(-90deg);
+}
+
+#f-front-container{
+    transform: translateZ(calc(var(--size-little-cube) * 2.3)) rotateY(-180deg);
+}
+
+#f-front-R-container{
+    transform: translateZ(calc(var(--size-little-cube) * 3.3)) ;
+}
+
+#f-back-container{
+    transform: translateZ(calc(var(--size-little-cube) * -2.3)) ;
+}
+
+#f-back-R-container{
+    transform: translateZ(calc(var(--size-little-cube) * -3.3)) rotateY(-180deg);
+}
+
+
+
+/* ---------GENERAL CUBE STYLES-------- */
+
+.cube-container {
+    position: relative;
+    perspective: 100000px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(45deg);
+    /* background-color: aquamarine; */
+    width: calc(var(--translate-little-cube)*3);
+    height: calc(var(--translate-little-cube)*3);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.individual-cube {
+    position: absolute;
+    width: var(--size-little-cube);
+    height: var(--size-little-cube);
+    transform-style: preserve-3d;
+    transition: transform .4s linear;  
+}
+
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: calc(var(--size-little-cube) *0.03) solid #111;
+    border-radius: calc(var(--size-little-cube) *0.1);
+    background-color: var(--black-face);
+}
+
+.front {
+    transform: translateZ(var(--half-size-little-cube));
+}
+
+.back {
+    transform: translateZ(var(--neg-half-size-little-cube));
+}
+
+.top {
+    transform: translateY(var(--neg-half-size-little-cube)) rotateX(90deg);
+}
+
+.bottom {
+    transform: translateY(var(--half-size-little-cube)) rotateX(90deg);
+}
+
+.left {
+    transform: translateX(var(--neg-half-size-little-cube)) rotateY(90deg);
+}
+
+.right {
+    transform: translateX(var(--half-size-little-cube)) rotateY(90deg);
+}
+
+/* ----BACK BLACK FACES --- */
+
+.front-backFace {
+    transform: translateZ(calc(var(--half-size-little-cube) * .99));
+}
+
+.back-backFace {
+    transform: translateZ(calc(var(--neg-half-size-little-cube) * .99));
+}
+
+.top-backFace {
+    transform: translateY(calc(var(--neg-half-size-little-cube) * .99)) rotateX(90deg);
+}
+
+.bottom-backFace {
+    transform: translateY(calc(var(--half-size-little-cube) * .99)) rotateX(90deg);
+}
+
+.left-backFace {
+    transform: translateX(calc(var(--neg-half-size-little-cube) * .99)) rotateY(90deg);
+}
+
+.right-backFace {
+    transform: translateX(calc(var(--half-size-little-cube) * .99)) rotateY(90deg);
+}
+
+/* --------------------------INDIVIDUAL CUBE STYLES-------- */
+
+/* ---------UPPER LEVEL-------- */
+
+#A-1-D {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .left {
+        background-color: var(--blue-face);
+    }
+
+    .back {
+        background-color: var(--red-face);
+    }
+}
+
+#A-2-D {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .left {
+        background-color: var(--blue-face);
+    }
+}
+
+#A-3-D {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .left {
+        background-color: var(--blue-face);
+    }
+
+    .front {
+        background-color: var(--orange-face);
+    }
+}
+
+#A-1-E {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .back {
+        background-color: var(--red-face);
+    }
+}
+
+#A-2-E {
+    .top {
+        background-color: var(--with-face);
+    }
+}
+
+#A-3-E {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .front {
+        background-color: var(--orange-face);
+    }
+}
+
+#A-1-F {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .right {
+        background-color: var(--green-face);
+    }
+
+    .back {
+        background-color: var(--red-face);
+    }
+}
+
+#A-2-F {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .right {
+        background-color: var(--green-face);
+    }
+}
+
+#A-3-F {
+    .top {
+        background-color: var(--with-face);
+    }
+
+    .right {
+        background-color: var(--green-face);
+    }
+
+    .front {
+        background-color: var(--orange-face);
+    }
+}
+
+/* ---------MEDIUM LEVEL-------- */
+
+#B-1-D {
+
+    .left {
+        background-color: var(--blue-face);
+    }
+
+    .back {
+        background-color: var(--red-face);
+    }
+}
+
+#B-2-D {
+
+    .left {
+        background-color: var(--blue-face);
+    }
+}
+
+#B-3-D {
+
+    .left {
+        background-color: var(--blue-face);
+    }
+
+    .front {
+        background-color: var(--orange-face);
+    }
+}
+
+#B-1-E {
+
+    .back {
+        background-color: var(--red-face);
+    }
+}
+
+#B-3-E {
+
+    .front {
+        background-color: var(--orange-face);
+    }
+}
+
+#B-1-F {
+
+    .right {
+        background-color: var(--green-face);
+    }
+
+    .back {
+        background-color: var(--red-face);
+    }
+}
+
+#B-2-F {
+
+    .right {
+        background-color: var(--green-face);
+    }
+}
+
+#B-3-F {
+
+    .right {
+        background-color: var(--green-face);
+    }
+
+    .front {
+        background-color: var(--orange-face);
+    }
+}
+
+/* ---------LOWER LEVEL-------- */
+
+#C-1-D {
+
+    .left {
+        background-color: var(--blue-face);
+    }
+
+    .back {
+        background-color: var(--red-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-2-D {
+
+    .left {
+        background-color: var(--blue-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-3-D {
+
+    .left {
+        background-color: var(--blue-face);
+    }
+
+    .front {
+        background-color: var(--orange-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-1-E {
+
+    .back {
+        background-color: var(--red-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-2-E {
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-3-E {
+
+    .front {
+        background-color: var(--orange-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-1-F {
+
+    .right {
+        background-color: var(--green-face);
+    }
+
+    .back {
+        background-color: var(--red-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-2-F {
+
+    .right {
+        background-color: var(--green-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+#C-3-F {
+
+    .right {
+        background-color: var(--green-face);
+    }
+
+    .front {
+        background-color: var(--orange-face);
+    }
+
+    .bottom {
+        background-color: var(--yellow-face);
+    }
+}
+
+
+
+/* --------MEDIAS QUERIES--------- */
+
+@media (width >= 750px){
+    :root {
+        --size-little-cube: 10vw;
+    }
+}
+
+@media (width >= 1100px){
+    :root {
+        --size-little-cube: 6vw;
+    }
+}

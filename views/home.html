@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Cubo Rubik 3D</title>
+  </head>
+  <body>
+    <section
+      class="cube-container"
+      style="transform: rotateX(-30deg) rotateY(45deg)"
+    >
+      <!-- AXIS -->
+
+      <div class="central-axis" id="Y-axis"></div>
+      <div class="central-axis" id="X-axis"></div>
+      <div class="central-axis" id="Z-axis"></div>
+
+      <!-- UPPER LEVEL -->
+
+      <article class="individual-cube" id="A-1-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top-backFace"></div>
+        <div class="face left-backFace"></div>
+        <div class="face back-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-2-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top-backFace"></div>
+        <div class="face left-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-3-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face top-backFace"></div>
+        <div class="face left-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-1-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face top-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-2-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(5px)"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(-5px)"></div>
+        <div class="face top-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-3-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face top-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-1-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face top-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-2-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face top-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+      <article class="individual-cube" id="A-3-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face top-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+
+      <!-- MEDIUM LEVEL -->
+
+      <article class="individual-cube" id="B-1-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face left-backFace"></div>
+      </article>
+      <article class="individual-cube" id="B-2-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face left-backFace"></div>
+        <div class="face right"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(5px)"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(-5px)"></div>
+      </article>
+      <article class="individual-cube" id="B-3-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face left-backFace"></div>
+      </article>
+      <article class="individual-cube" id="B-1-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateX(-5px) rotateY(90deg)"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateX(5px) rotateY(90deg)"></div>
+      </article>
+      <article class="individual-cube" id="B-2-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+      </article>
+      <article class="individual-cube" id="B-3-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>        
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateX(-5px) rotateY(90deg)"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateX(5px) rotateY(90deg)"></div>
+      </article>
+      <article class="individual-cube" id="B-1-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+      <article class="individual-cube" id="B-2-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face right-backFace"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(5px)"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(-5px)"></div>
+      </article>
+      <article class="individual-cube" id="B-3-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+
+      <!-- LOWER LEVEL -->
+
+      <article class="individual-cube" id="C-1-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face bottom-backFace"></div>
+        <div class="face left-backFace"></div>
+      </article>
+      <article class="individual-cube" id="C-2-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face bottom-backFace"></div>
+        <div class="face left-backFace"></div>
+      </article>
+      <article class="individual-cube" id="C-3-D">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face bottom-backFace"></div>
+        <div class="face left-backFace"></div>
+      </article>
+      <article class="individual-cube" id="C-1-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face bottom-backFace"></div>
+      </article>
+      <article class="individual-cube" id="C-2-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face bottom-backFace"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(5px)"></div>
+        <div class="face" style="top: 2.5%; left: 2.5%; width: 95%; height: 95%; transform: translateZ(-5px)"></div>
+      </article>
+      <article class="individual-cube" id="C-3-E">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face bottom-backFace"></div>
+      </article>
+      <article class="individual-cube" id="C-1-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face back-backFace"></div>
+        <div class="face bottom-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+      <article class="individual-cube" id="C-2-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face bottom-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+      <article class="individual-cube" id="C-3-F">
+        <div class="face front"></div>
+        <div class="face back"></div>
+        <div class="face top"></div>
+        <div class="face bottom"></div>
+        <div class="face left"></div>
+        <div class="face right"></div>
+        <div class="face front-backFace"></div>
+        <div class="face bottom-backFace"></div>
+        <div class="face right-backFace"></div>
+      </article>
+
+      <!-- BUTTONS -->
+
+      <article class="ext-button-container" id="f-up-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_up"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-up-R-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_up_R"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-down-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_down"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-down-R-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_down_R"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-left-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_left"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-left-R-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_left_R"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-right-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_right"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-right-R-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_right_R"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-front-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_front"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-front-R-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_front_R"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-back-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_back"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+      <article class="ext-button-container" id="f-back-R-container">
+        <div class="button-container" rotate="0">
+          <button class="movement" id="f_back_R"></button>
+          <span class="arrow">></span>
+        </div>
+      </article>
+    </section>
+
+    <article class="ext-button-container" id="f-middleX-container" style="display: none;">
+      <div class="button-container" rotate="0">
+        <button class="movement" id="f_middleX"></button>
+        <span class="arrow">></span>
+      </div>
+    </article>
+    <article class="ext-button-container" id="f-middleX-R-container" style="display: none;">
+      <div class="button-container" rotate="0">
+        <button class="movement" id="f_middleX_R"></button>
+        <span class="arrow">></span>
+      </div>
+    </article>
+    <article class="ext-button-container" id="f-middleY-container" style="display: none;">
+      <div class="button-container" rotate="0">
+        <button class="movement" id="f_middleY"></button>
+        <span class="arrow">></span>
+      </div>
+    </article>
+    <article class="ext-button-container" id="f-middleY-R-container" style="display: none;">
+      <div class="button-container" rotate="0">
+        <button class="movement" id="f_middleY_R"></button>
+        <span class="arrow">></span>
+      </div>
+    </article>
+    <article class="ext-button-container" id="f-middleZ-container" style="display: none;">
+      <div class="button-container" rotate="0">
+        <button class="movement" id="f_middleZ"></button>
+        <span class="arrow">></span>
+      </div>
+    </article>
+    <article class="ext-button-container" id="f-middleZ-R-container" style="display: none;">
+      <div class="button-container" rotate="0">
+        <button class="movement" id="f_middleZ_R"></button>
+        <span class="arrow">></span>
+      </div>
+    </article>
+
+    <footer>
+      <button id="mixer">MEZCLAR</button>
+      <button id="solver">RESOLVER</button>
+    </footer>
+
+    <script type="module" src="/js/listeners"></script>
+
+  </body>
+</html>
