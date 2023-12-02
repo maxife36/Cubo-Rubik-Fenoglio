@@ -1,14 +1,16 @@
 import { cubeDefaultPositions } from "/js/default-positions"
 
-import {setDataLocalStorage, getDataLocalStorage, faceElements, transformModifier, rotateMatrix, setTransformProp, movementControl, cubeMixer, cubeSolver, movementMemory, btnAnimation} from "/js/functions"
+import * as fn from "/js/functions"
+import * as movement from "/js/drag-movements"
 
-import {dragMovements, btn_up, btn_up_R, btn_down, btn_down_R, btn_left, btn_left_R, btn_right, btn_right_R, btn_front, btn_front_R, btn_back, btn_back_R, btn_middleY, btn_middleY_R, btn_middleX, btn_middleX_R, btn_middleZ, btn_middleZ_R} from "/js/drag-movements"
 
 /* -----DOM ELEMENTS------ */
 
 const cubeContainer = document.querySelector(".cube-container");
 const btnMixer = document.querySelector("#mixer")
 const btnSolver = document.querySelector("#solver")
+const btnAxis = document.querySelector("#btn-Axis")
+const btnControlers = document.querySelector("#btn-Axis")
 
 
 const currentPositions = {}
@@ -42,108 +44,108 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  setDataLocalStorage(currentPositions, "currentPositions")
-  setDataLocalStorage([], "movementMemory")
+  fn.setDataLocalStorage(currentPositions, "currentPositions")
+  fn.setDataLocalStorage([], "fn.movementMemory")
 
 })
 
 /* ----BUTTONS CONTROLERS---- */
 
-btn_up.addEventListener("click", () => {
-  movementControl(btn_up);
-  btnAnimation(btn_up)
+movement.btn_up.addEventListener("click", () => {
+  fn.movementControl(movement.btn_up);
+  fn.btnAnimation(movement.btn_up)
 })
 
-btn_up_R.addEventListener("click", () => {
-  movementControl(btn_up_R);
-  btnAnimation(btn_up_R)
+movement.btn_up_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_up_R);
+  fn.btnAnimation(movement.btn_up_R)
 })
 
-btn_down.addEventListener("click", () => {
-  movementControl(btn_down);
-  btnAnimation(btn_down)
+movement.btn_down.addEventListener("click", () => {
+  fn.movementControl(movement.btn_down);
+  fn.btnAnimation(movement.btn_down)
 })
 
-btn_down_R.addEventListener("click", () => {
-  movementControl(btn_down_R);
-  btnAnimation(btn_down_R)
+movement.btn_down_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_down_R);
+  fn.btnAnimation(movement.btn_down_R)
 })
 
-btn_left.addEventListener("click", () => {
-  movementControl(btn_left);
-  btnAnimation(btn_left)
+movement.btn_left.addEventListener("click", () => {
+  fn.movementControl(movement.btn_left);
+  fn.btnAnimation(movement.btn_left)
 })
 
-btn_left_R.addEventListener("click", () => {
-  movementControl(btn_left_R);
-  btnAnimation(btn_left_R)
+movement.btn_left_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_left_R);
+  fn.btnAnimation(movement.btn_left_R)
 })
 
-btn_right.addEventListener("click", () => {
-  movementControl(btn_right);
-  btnAnimation(btn_right)
+movement.btn_right.addEventListener("click", () => {
+  fn.movementControl(movement.btn_right);
+  fn.btnAnimation(movement.btn_right)
 })
 
-btn_right_R.addEventListener("click", () => {
-  movementControl(btn_right_R);
-  btnAnimation(btn_right_R)
+movement.btn_right_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_right_R);
+  fn.btnAnimation(movement.btn_right_R)
 })
 
-btn_front.addEventListener("click", () => {
-  movementControl(btn_front);
-  btnAnimation(btn_front)
+movement.btn_front.addEventListener("click", () => {
+  fn.movementControl(movement.btn_front);
+  fn.btnAnimation(movement.btn_front)
 })
 
-btn_front_R.addEventListener("click", () => {
-  movementControl(btn_front_R);
-  btnAnimation(btn_front_R)
+movement.btn_front_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_front_R);
+  fn.btnAnimation(movement.btn_front_R)
 })
 
-btn_back.addEventListener("click", () => {
-  movementControl(btn_back);
-  btnAnimation(btn_back)
+movement.btn_back.addEventListener("click", () => {
+  fn.movementControl(movement.btn_back);
+  fn.btnAnimation(movement.btn_back)
 })
 
-btn_back_R.addEventListener("click", () => {
-  movementControl(btn_back_R);
-  btnAnimation(btn_back_R)
+movement.btn_back_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_back_R);
+  fn.btnAnimation(movement.btn_back_R)
 })
 
-btn_middleY.addEventListener("click", () => {
-  movementControl(btn_middleY);
-  btnAnimation(btn_middleY)
+movement.btn_middleY.addEventListener("click", () => {
+  fn.movementControl(movement.btn_middleY);
+  fn.btnAnimation(movement.btn_middleY)
 })
 
-btn_middleY_R.addEventListener("click", () => {
-  movementControl(btn_middleY_R);
-  btnAnimation(btn_middleY_R)
+movement.btn_middleY_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_middleY_R);
+  fn.btnAnimation(movement.btn_middleY_R)
 })
 
-btn_middleX.addEventListener("click", () => {
-  movementControl(btn_middleX);
-  btnAnimation(btn_middleX)
+movement.btn_middleX.addEventListener("click", () => {
+  fn.movementControl(movement.btn_middleX);
+  fn.btnAnimation(movement.btn_middleX)
 })
 
-btn_middleX_R.addEventListener("click", () => {
-  movementControl(btn_middleX_R);
-  btnAnimation(btn_middleX_R)
+movement.btn_middleX_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_middleX_R);
+  fn.btnAnimation(movement.btn_middleX_R)
 })
 
-btn_middleZ.addEventListener("click", () => {
-  movementControl(btn_middleZ);
-  btnAnimation(btn_middleZ)
+movement.btn_middleZ.addEventListener("click", () => {
+  fn.movementControl(movement.btn_middleZ);
+  fn.btnAnimation(movement.btn_middleZ)
 })
 
-btn_middleZ_R.addEventListener("click", () => {
-  movementControl(btn_middleZ_R);
-  btnAnimation(btn_middleZ_R)
+movement.btn_middleZ_R.addEventListener("click", () => {
+  fn.movementControl(movement.btn_middleZ_R);
+  fn.btnAnimation(movement.btn_middleZ_R)
 })
 
 
 btnMixer.addEventListener("click",async() => {
   btnSolver.disabled = true
   
-  await cubeMixer(btnMixer)
+  await fn.cubeMixer(btnMixer)
 
   btnSolver.disabled = false
 })
@@ -151,7 +153,7 @@ btnMixer.addEventListener("click",async() => {
 btnSolver.addEventListener("click",async() => {
   btnMixer.disabled = true
   
-  await cubeSolver(btnSolver)
+  await fn.cubeSolver(btnSolver)
 
   btnMixer.disabled = false
 })
@@ -183,7 +185,7 @@ const startDragDesktop = (event) => {
 const endDragDesktop = (event) => {
   endElementId = event.target.parentNode.id;
 
-  const currentPositions = getDataLocalStorage("currentPositions")
+  const currentPositions = fn.getDataLocalStorage("currentPositions")
 
   let startPosition = null
   let endPosition = null
@@ -194,9 +196,9 @@ const endDragDesktop = (event) => {
   }
 
 
-  if (dragMovements[startPosition]){
-    if(dragMovements[startPosition][endPosition]){
-      const btnComand = dragMovements[startPosition][endPosition]
+  if (movement.dragMovements[startPosition]){
+    if(movement.dragMovements[startPosition][endPosition]){
+      const btnComand = movement.dragMovements[startPosition][endPosition]
       btnComand.click()
     }
   }
@@ -274,7 +276,7 @@ const startDragMobile = (event) => {
 const endDragMobile = (event) => {
   endElementId = event.changedTouches[0].target.parentNode.id 
 
-  const currentPositions = getDataLocalStorage("currentPositions")
+  const currentPositions = fn.getDataLocalStorage("currentPositions")
 
   let startPosition = null
   let endPosition = null
@@ -286,9 +288,9 @@ const endDragMobile = (event) => {
 
 
 
-  if (dragMovements[startPosition]){
-    if(dragMovements[startPosition][endPosition]){
-      const btnComand = dragMovements[startPosition][endPosition]
+  if (movement.dragMovements[startPosition]){
+    if(movement.dragMovements[startPosition][endPosition]){
+      const btnComand = movement.dragMovements[startPosition][endPosition]
       btnComand.click()
     }
   }
