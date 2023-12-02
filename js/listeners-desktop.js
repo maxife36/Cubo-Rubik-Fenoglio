@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  fn.setDataLocalStorage(currentPositions, "currentPositions")
-  fn.setDataLocalStorage([], "fn.movementMemory")
+  fn.setDataSessionStorage(currentPositions, "currentPositions")
+  fn.setDataSessionStorage([], "movementMemory")
 
 })
 
@@ -182,7 +182,7 @@ let endElementId = null
 const endDragDesktop = (event) => {
   endElementId = event.target.parentNode.id;
 
-  const currentPositions = fn.getDataLocalStorage("currentPositions")
+  const currentPositions = fn.getDataSessionStorage("currentPositions")
 
   let startPosition = null
   let endPosition = null

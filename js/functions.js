@@ -6,20 +6,20 @@ const currentPositions = {}
 
 /* ------------------FUNCIONES GENERALES----------------- */
 
-//setea en LocalStorage un objeto en la referencia que le pasemos
+//setea en SessionStorage un objeto en la referencia que le pasemos
 
-export const setDataLocalStorage = (obj, idLocalStorage) => {
+export const setDataSessionStorage = (obj, idSessionStorage) => {
 
     const objJSON = JSON.stringify(obj);
   
-    localStorage.setItem(idLocalStorage, objJSON)
+    sessionStorage.setItem(idSessionStorage, objJSON)
   
   }
   
-  //devuelve el valor que contiene la referencia del localStorage que se le pase
-export const getDataLocalStorage = (idLocalStorage) => {
+  //devuelve el valor que contiene la referencia del sessionStorage que se le pase
+export const getDataSessionStorage = (idSessionStorage) => {
   
-    const objJSON = localStorage.getItem(idLocalStorage);
+    const objJSON = sessionStorage.getItem(idSessionStorage);
   
     const obj = JSON.parse(objJSON);
   
@@ -29,7 +29,7 @@ export const getDataLocalStorage = (idLocalStorage) => {
   //devuelve los cubos individuales que invloucra el movimiento de cierta cara- Siempre tendran 9 elementos ya que cada movimiento involucra 9 cubos
   
 export const faceElements = (faceIdentifier) => {
-    const currentPosition = getDataLocalStorage("currentPositions")
+    const currentPosition = getDataSessionStorage("currentPositions")
     const faceCubes = {}
   
     for (let idRef in currentPosition) {
@@ -120,7 +120,7 @@ export const movementControl = (btn) => {
     movementMemory(btn.id)
   
   
-    const currentPositions = getDataLocalStorage("currentPositions")
+    const currentPositions = getDataSessionStorage("currentPositions")
   
     //array con las posiciones que abarcan el movimiento seleccionado
     const cubesToMove = faceElements(controls[0])
@@ -137,13 +137,13 @@ export const movementControl = (btn) => {
   
     rotateMatrix(cubesToMove, controls[3])
   
-    //actualizacion de elementos en el sistema de referencia fijo (en localStorage )
+    //actualizacion de elementos en el sistema de referencia fijo (en sessionStorage )
   
     for (const el in cubesToMove) {
       currentPositions[el] = cubesToMove[el]
     }
   
-    setDataLocalStorage(currentPositions, "currentPositions")
+    setDataSessionStorage(currentPositions, "currentPositions")
   }
   
   //permite mezclar el cubo de manera aleatoria
@@ -182,7 +182,7 @@ export const cubeMixer = async (commandBtn)=>{
 export const cubeSolver =async (commandBtn) => {
     commandBtn.disabled = true
   
-    const movementHistory = getDataLocalStorage("movementMemory")
+    const movementHistory = getDataSessionStorage("movementMemory")
   
     const reverseMoves = []
   
@@ -215,7 +215,7 @@ export const cubeSolver =async (commandBtn) => {
     }
 
   
-    setDataLocalStorage([], "movementMemory")
+    setDataSessionStorage([], "movementMemory")
   
     commandBtn.disabled = false
   }
@@ -223,11 +223,11 @@ export const cubeSolver =async (commandBtn) => {
   // almacena los movimiento realizados
   
 export const movementMemory = (movement) => {
-    const movementHistory = getDataLocalStorage("movementMemory")
+    const movementHistory = getDataSessionStorage("movementMemory")
     
     movementHistory.push(movement)
   
-    setDataLocalStorage(movementHistory, "movementMemory")
+    setDataSessionStorage(movementHistory, "movementMemory")
   
   }
   
@@ -255,6 +255,7 @@ export const btnAnimation = (btn) => {
   
   }
 
+  //funciones que controlan los switches 
 
 export const showAxies = (chbx) => {
   const axies = document.querySelectorAll(".central-axis")

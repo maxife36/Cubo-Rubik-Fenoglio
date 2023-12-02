@@ -141,7 +141,7 @@ let endElementId = null
 
 const endDragMobile = () => {
 
-  const currentPositions = fn.getDataLocalStorage("currentPositions")
+  const currentPositions = fn.getDataSessionStorage("currentPositions")
 
   let startPosition = null
   let endPosition = null
