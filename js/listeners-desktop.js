@@ -9,8 +9,8 @@ import * as movement from "/js/drag-movements"
 const cubeContainer = document.querySelector(".cube-container");
 const btnMixer = document.querySelector("#mixer")
 const btnSolver = document.querySelector("#solver")
-const btnAxis = document.querySelector("#btn-Axis")
-const btnControlers = document.querySelector("#btn-Axis")
+const btnAxis = document.querySelector("#chbx-axis")
+const btnControlers = document.querySelector("#chbx-controls")
 
 
 const currentPositions = {}
@@ -178,9 +178,6 @@ let endElementId = null
 
 //----------version escritorio
 
-const startDragDesktop = (event) => {
-  startElementId = event.target.parentNode.id;
-}
 
 const endDragDesktop = (event) => {
   endElementId = event.target.parentNode.id;
@@ -216,14 +213,14 @@ window.addEventListener("mousedown",(event)=>{
   const cubeId = event.target.parentNode.id
   const refCubeId = `${cubeId[0]}_${cubeId[2]}_${cubeId[4]}`
   
+  startElementId = cubeId;
+
   if(vertices.includes(refCubeId)){
 
     isDragging = true;
     startX = event.clientX;
     startY = event.clientY;
 
-  }else{
-    startDragDesktop(event)
   }
 } )
 
@@ -265,100 +262,21 @@ window.addEventListener("mousemove", (event) => {
   }
 })
 
-
-//------version mobile
-
-
-const startDragMobile = (event) => {
-  startElementId = event.touches[0].target.parentNode.id;
-}
-
-const endDragMobile = (event) => {
-  endElementId = event.changedTouches[0].target.parentNode.id 
-
-  const currentPositions = fn.getDataLocalStorage("currentPositions")
-
-  let startPosition = null
-  let endPosition = null
-
-  for (const el in currentPositions) {
-    if (currentPositions[el].id === startElementId) startPosition = el;
-    if (currentPositions[el].id === endElementId) endPosition = el
+btnAxis.addEventListener("change", () =>{
+  if(btnAxis.checked){
+    btnControlers.checked = false
+    fn.btnControlers(btnControlers)
   }
 
-
-
-  if (movement.dragMovements[startPosition]){
-    if(movement.dragMovements[startPosition][endPosition]){
-      const btnComand = movement.dragMovements[startPosition][endPosition]
-      btnComand.click()
-    }
+  fn.showAxies(btnAxis)
+} )
+btnControlers.addEventListener("change", () => {
+  if(btnControlers.checked){
+    btnAxis.checked = false
+    fn.btnControlers(btnAxis)
   }
-
-
-}
-
-
-window.addEventListener("touchstart",(event)=>{
-  event.preventDefault()
-
-  const cubeId = event.touches[0].target.parentNode.id
-  const refCubeId = `${cubeId[0]}_${cubeId[2]}_${cubeId[4]}`
-
   
-  if(vertices.includes(refCubeId)){
-
-    isDragging = true;
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
-
-  }else{
-    startDragMobile(event)
-  }
-}, { passive: false } )
-
-window.addEventListener("touchend", (event)=>{
-  event.preventDefault()
-
-  isDragging = false;
-
-
-  endDragMobile(event)
-
-  startElementId = null
-  endElementId = null
-
-}, { passive: false } )
-
-window.addEventListener("touchmove", (event) => {
-  event.preventDefault()
-  
-  if (isDragging) {
-
-
-    const difX = event.touches[0].clientX - startX;
-    const difY = event.touches[0].clientY - startY;
-
-    
-    // sensitive disminuye el valor de px que presenta la diferencia entre las coordenadas de cundo hago click (mousedown) con las coordenadas del mouse mientas me muevo (event.clientX/Y)
-    const sensitiveX = 0.2;
-    const sensitiveY = 0.2;
-    const sensitiveZ = 0.001;
-
-    
-    const newtransform = cubeContainer.style.transform + `rotateY(${difX * sensitiveX}deg) rotateX(${difY * -sensitiveY}deg)rotateZ(${(difX - difY) * sensitiveZ}deg)`;
-
-    const newMatrix = new DOMMatrix(newtransform)
-
-    cubeContainer.style.transform = newMatrix.toString()
-    
-    
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY; 
-  }
-}, { passive: false })
-
-
-
+  fn.btnControlers(btnControlers)
+} )
 
 

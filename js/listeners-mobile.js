@@ -9,8 +9,8 @@ import * as movement from "/js/drag-movements"
 const cubeContainer = document.querySelector(".cube-container");
 const btnMixer = document.querySelector("#mixer")
 const btnSolver = document.querySelector("#solver")
-const btnAxis = document.querySelector("#btn-Axis")
-const btnControlers = document.querySelector("#btn-Axis")
+const btnAxis = document.querySelector("#chbx-axis")
+const btnControlers = document.querySelector("#chbx-controls")
 
 
 const currentPositions = {}
@@ -229,6 +229,21 @@ window.addEventListener("touchmove", (event) => {
 }, {passive : true} )
 
 
+btnAxis.addEventListener("touchend", () =>{
+  if(btnAxis.checked){
+    btnControlers.checked = false
+    fn.btnControlers(btnControlers)
+  }
 
+  fn.showAxies(btnAxis)
+} )
+btnControlers.addEventListener("touchend", () => {
+  if(btnControlers.checked){
+    btnAxis.checked = false
+    fn.btnControlers(btnAxis)
+  }
+  
+  fn.btnControlers(btnControlers)
+} )
 
 

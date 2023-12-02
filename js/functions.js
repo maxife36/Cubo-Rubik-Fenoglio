@@ -254,3 +254,27 @@ export const btnAnimation = (btn) => {
     DOMButton.style.transform = `rotateZ(${newRotateValue}deg)`
   
   }
+
+
+export const showAxies = (chbx) => {
+  const axies = document.querySelectorAll(".central-axis")
+  
+  if(chbx.checked){
+    axies.forEach(el => el.style.display = "flex")
+  }else{
+    axies.forEach(el => el.style.display = "none")
+  }
+}
+
+export const btnControlers = (chbx) => {
+  const axies = document.querySelectorAll(".central-axis")
+  const btsControlers = document.querySelectorAll(".ext-button-container")
+  
+  if(chbx.checked){
+    axies.forEach(el => el.style.display = "flex")
+    btsControlers.forEach(el => el.style.display = "flex")
+  }else{
+    axies.forEach(el => el.style.display = "none")
+    btsControlers.forEach(el => el.style.display = "none")
+  }
+}

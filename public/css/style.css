@@ -221,7 +221,7 @@ main{
 /* ---------AXIES STYLES-------- */
 
 .central-axis{
-    display: flex;
+    display: none;
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: center;
@@ -252,7 +252,7 @@ main{
 /* ---------BUTTONS MOVEMENT STYLES-------- */
 
 .ext-button-container{
-    display: block;
+    display: none;
     position: absolute;
     transform-style: preserve-3d;
     width: var(--size-little-cube);
