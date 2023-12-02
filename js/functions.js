@@ -203,8 +203,6 @@ export const cubeSolver =async (commandBtn) => {
       }
     }
   
-    /* let timestamp = 0 */
-  
     for (let i = 0; i < reverseMoves.length; i++) {
   
       await new Promise(resolve => {
@@ -215,18 +213,7 @@ export const cubeSolver =async (commandBtn) => {
       })
       
     }
-  
-   /*  reverseMoves.forEach(await (el) => {
-  
-      setTimeout(()=>{
-        el.click()
-      }, timestamp)
-  
-      timestamp += 400
-  
-    })
-   */
-    //reinicio la memoria
+
   
     setDataLocalStorage([], "movementMemory")
   

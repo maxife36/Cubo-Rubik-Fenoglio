@@ -15,7 +15,7 @@ const btnControlers = document.querySelector("#btn-Axis")
 
 const currentPositions = {}
 
-/* ------------------EVENTS LISTENERS----------------- */
+/* ------------------EVENTS LISTENERS DESKTOPS----------------- */
 
 /* ----PRELOAD---- */
 

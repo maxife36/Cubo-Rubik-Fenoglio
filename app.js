@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 3000
 //---Paths---
 
 const pathHome = path.resolve("views", "home.html") 
-const pathListeners = path.resolve("js", "listeners.js") 
+const pathListenersDesktop = path.resolve("js", "listeners-desktop.js") 
+const pathListenersMobile = path.resolve("js", "listeners-mobile.js") 
 const pathFunctions = path.resolve("js", "functions.js") 
 const pathControlsSettings = path.resolve("js", "config-data", "controls-settings.js") 
 const pathDefaultPositions = path.resolve("js", "config-data", "default-positions.js") 
@@ -21,7 +22,8 @@ const pathDragMovements = path.resolve("js", "config-data", "drag-movements.js")
 //----Peticiones CRUD----
 
 app.get("/", (req,res) => res.sendFile(pathHome))
-app.get("/js/listeners", (req,res) => res.sendFile(pathListeners))
+app.get("/js/listeners-desktop", (req,res) => res.sendFile(pathListenersDesktop))
+app.get("/js/listeners-mobile", (req,res) => res.sendFile(pathListenersMobile))
 app.get("/js/functions", (req,res) => res.sendFile(pathFunctions))
 app.get("/js/controls-settings", (req,res) => res.sendFile(pathControlsSettings))
 app.get("/js/default-positions", (req,res) => res.sendFile(pathDefaultPositions))
