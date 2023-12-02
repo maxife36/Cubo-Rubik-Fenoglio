@@ -30,21 +30,21 @@ html {
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+/*     width: 100vw;
+    height: 100vh; */
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
     align-items: center;
     background-color: lightgray;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 /* ---------MAIN SECTIONS-------- */
  
 header{
     width: 100vw;
-    height: 10%;
+    height: 10vh;
     background: linear-gradient(#0c004a,#355269);
     background-color: var(--red-face);
     display: flex;
@@ -55,7 +55,7 @@ header{
 
 footer{
     width: 100vw;
-    height: 10%;
+    height: 10vh;
     background: linear-gradient(180deg,#0c004a,#355269);
     background-color: var(--red-face);
     display: flex;
@@ -71,7 +71,7 @@ main{
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 80%;
+    height: 80vh;
     max-height: 80%;
 }
 
