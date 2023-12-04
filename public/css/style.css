@@ -72,7 +72,6 @@ main{
     align-items: center;
     width: 100vw;
     height: 80vh;
-    max-height: 80%;
 }
 
 #mixer,
